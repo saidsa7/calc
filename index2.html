@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="./node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+    <link
+      rel="stylesheet"
+      href="./node_modules/bootstrap/dist/css/bootstrap.min.css"
+    />
+  </head>
+  <body style="background-color: rgb(121, 120, 119)">
+    <div
+      style="
+        margin-top: 200px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      "
+    >
+      <div style="margin-right: 10px">
+        <h2>First Number</h2>
+        <input id="first-number" type="text" style="width: 250px" />
+      </div>
+
+      <div>
+        <h2>Second Number</h2>
+        <input id="second-number" type="text" style="width: 250px" />
+      </div>
+    </div>
+    <div style="margin-top: 30px; text-align: center">
+      <button
+        type="button"
+        class="btn btn-warning"
+        style="width: 100px; height: 50px"
+        id="devide-click"
+      >
+        devide
+      </button>
+    </div>
+    <div style="margin-top: 20px; text-align: center">
+      <h2>Result : <span id="result"></span></h2>
+    </div>
+    <div style="margin-top: 20px; text-align: center">
+      <a href="./index.html">go to first page</a>
+    </div>
+  </body>
+
+  <script src="./logic.js"></script>
+  <!-- <script src="./eventListeners.js"></script> -->
+
+  <script>
+    const devideBtn = document.getElementById("devide-click");
+    devideBtn.addEventListener("click", () => {
+      const firstNumber = document.getElementById("first-number").value;
+      const secondNumber = document.getElementById("second-number").value;
+
+      try {
+        let result = devide(Number(firstNumber), Number(secondNumber));
+        document.getElementById("result").innerHTML = result;
+      } catch (error) {
+        document.getElementById("result").innerHTML = error;
+      } finally {
+        console.log("hello world !");
+      }
+    });
+  </script>
+</html>
